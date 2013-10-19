@@ -3,10 +3,6 @@ module Main where
 
 data Printing = Endl | forall a. Show a => Printing a Printing
 
-instance Show Printing where
-  show Endl = "Endl"
-  show (Printing a remain) = show a ++ " " ++ show remain
-
 (<$>) :: Show a => a -> Printing -> Printing
 (<$>) a remain = Printing a remain
 infixr 8 <$>
